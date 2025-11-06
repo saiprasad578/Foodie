@@ -1,3 +1,41 @@
+/* Signup Page Specific Variables */
+.signup-page {
+  /* Light theme */
+  --lead: #1a1a2e;
+  --gold-finger: #f39c12;
+  --gold-hover: #e67e22;
+  --eye-ball: #f8f9fa;
+  --hint-yellow: #fff3cd;
+  --pure-white: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --bg-accent: #fff3cd;
+  --border-color: #e1e8ed;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --shadow-strong: rgba(0, 0, 0, 0.15);
+  --success: #27ae60;
+  --error: #e74c3c;
+}
+
+/* Dark Theme for Signup Page */
+.signup-page[data-theme="dark"] {
+  --lead: #ecf0f1;
+  --gold-finger: #f39c12;
+  --gold-hover: #e67e22;
+  --eye-ball: #0f0f1e;
+  --hint-yellow: #2c3e50;
+  --pure-white: #1a1a2e;
+  --text-primary: #ecf0f1;
+  --text-secondary: #95a5a6;
+  --bg-primary: #16213e;
+  --bg-secondary: #1a1a2e;
+  --bg-accent: #2c3e50;
+  --border-color: #2c3e50;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --shadow-strong: rgba(0, 0, 0, 0.6);
+}
 
 /* Base Styles */
 * {

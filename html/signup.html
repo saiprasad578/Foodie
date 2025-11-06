@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../css/signUp.css" />
 </head>
 
-<body>
+<body class="signup-page">
   <a href="index.html" class="back-home" aria-label="Back to Home">
     <span class="icon">←</span> Back to Home
   </a>
@@ -185,18 +185,19 @@
     setInterval(changeHero, 4000);
 
     // Theme Toggle
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    updateThemeIcon(currentTheme);
+const signupPage = document.querySelector('.signup-page');
+const currentTheme = localStorage.getItem('theme') || 'light';
+signupPage.setAttribute('data-theme', currentTheme);
+updateThemeIcon(currentTheme);
 
-    themeToggle.addEventListener('click', () => {
-      const theme = document.documentElement.getAttribute('data-theme');
-      const newTheme = theme === 'dark' ? 'light' : 'dark';
-      
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateThemeIcon(newTheme);
-    });
+themeToggle.addEventListener('click', () => {
+  const theme = signupPage.getAttribute('data-theme');
+  const newTheme = theme === 'dark' ? 'light' : 'dark';
+  
+  signupPage.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateThemeIcon(newTheme);
+});
 
     function updateThemeIcon(theme) {
       const icon = themeToggle.querySelector('i');
