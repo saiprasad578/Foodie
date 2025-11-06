@@ -281,6 +281,7 @@ header .navbar.wrapper {
     box-shadow: rgba(0, 0, 0, 0.1) 0 2px 1px;
     color: var(--pure-while);
     transition: 0.3s ease-in-out;
+    border: none;
 }
 
 .btn:hover {
