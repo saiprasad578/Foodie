@@ -25,23 +25,23 @@
 </head>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.querySelector('.hamberger');
-    const nav = document.querySelector('nav.navbar');
-    const mobileMenu = document.querySelector('.mobile-menu');
+    document.addEventListener('DOMContentLoaded', function () {
+        const hamburger = document.querySelector('.hamberger');
+        const nav = document.querySelector('nav.navbar');
+        const mobileMenu = document.querySelector('.mobile-menu');
 
-    if (hamburger && nav && mobileMenu) {
-      hamburger.addEventListener('click', function (e) {
-        e.preventDefault();
+        if (hamburger && nav && mobileMenu) {
+            hamburger.addEventListener('click', function (e) {
+                e.preventDefault();
 
-        // Toggle mobile menu visibility
-        mobileMenu.classList.toggle('active');
+                // Toggle mobile menu visibility
+                mobileMenu.classList.toggle('active');
 
-        // Toggle the "menu-open" class on <nav> to control the search visibility
-        nav.classList.toggle('menu-open');
-      });
-    }
-  });
+                // Toggle the "menu-open" class on <nav> to control the search visibility
+                nav.classList.toggle('menu-open');
+            });
+        }
+    });
 </script>
 
 
@@ -50,6 +50,7 @@
         <nav class="navbar flex between wrapper">
             <div class="logo">Foodie.</div>
 
+            <!-- DESKTOP MENU -->
             <ul class="navList flex gap-3 between">
                 <li><a class="active" href="./index.html#home" data-i18n="nav.home">Home</a></li>
                 <li><a href="./menu.html" data-i18n="nav.menu">Menu</a></li>
@@ -58,6 +59,7 @@
                 <li><a href="nearbyres.html" data-i18n="nav.nearby">Nearby Restaurants</a></li>
             </ul>
             <div class="desktop-action flex gap-2">
+                <!-- Language Selector -->
                 <div class="language-selector">
                     <select id="language-select">
                         <option value="en">English</option>
@@ -65,52 +67,58 @@
                     </select>
                 </div>
 
-                <form class="navbar-search hidden-search" action="#" method="get">
-                    <input type="text" name="search" id="navbar-search" data-i18n="[placeholder]nav.searchPlaceholder"
+                <!-- Search Input -->
+                <form class="navbar-search" action="#" method="get">
+                    <input type="text" name="search" id="navbar-search" placeholder="Search your food ..."
                         aria-label="Search menu items">
-                    <button type="submit" id="navbar-search-btn" data-i18n-aria-label="nav.search">
+                    <button type="submit" id="navbar-search-btn" aria-label="Search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </form>
 
-                <button class="desktop-action theme-toggle" data-i18n-aria-label="nav.toggleDarkMode">
+                <!-- Theme toggle -->
+                <button class="desktop-action theme-toggle" aria-label="Toggle dark mode">
                     <i class="fa-solid fa-moon"></i>
                 </button>
 
+                <!-- Cart Icon -->
                 <a href="./checkout.html" class="cart-icon">
                     <i class="fa-solid fa-bag-shopping"></i>
                     <span class="cart-value">0</span>
                 </a>
 
-                <a href="./signup.html" class="btn" data-i18n="nav.signIn">
+                <!-- Sign-in button -->
+                <a href="./signup.html" class="btn">
                     Sign in&nbsp;<i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </a>
 
+                <!-- Hamburger -->
                 <a href="#" class="hamberger"><i class="fa-solid fa-bars"></i></a>
             </div>
 
 
+            <!-- MOBILE MENU -->
             <ul class="mobile-menu">
                 <li><a class="active" href="./index.html#home" data-i18n="nav.home">Home</a></li>
-                <li><a href="./index.html#services" data-i18n="nav.services">Services</a></li>
                 <li><a href="./menu.html" data-i18n="nav.menu">Menu</a></li>
                 <li><a href="./aboutUs.html" data-i18n="nav.about">About Us</a></li>
                 <li><a href="./contactUs.html" data-i18n="nav.contact">Contact Us</a></li>
                 <li><a href="nearbyres.html" data-i18n="nav.nearby">Nearby Restaurants</a></li>
-                 <form class="navbar-search" action="#" method="get">
-                    <input type="text" name="search" id="navbar-search" data-i18n="[placeholder]nav.searchPlaceholder"
+                <!-- Search Input -->
+                <form class="navbar-search" action="#" method="get">
+                    <input type="text" name="search" id="navbar-search" placeholder="Search your food ..."
                         aria-label="Search menu items">
-                    <button type="submit" id="navbar-search-btn" data-i18n-aria-label="nav.search">
+                    <button type="submit" id="navbar-search-btn" aria-label="Search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </form>
                 <li>
-                    <button class="theme-toggle mobile-theme-toggle" data-i18n-aria-label="nav.toggleDarkMode">
-                        <i class="fa-solid fa-moon"></i><span data-i18n="nav.darkMode">Dark Mode</span>
+                    <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i><span>Dark Mode</span>
                     </button>
                 </li>
                 <li>
-                    <a href="./signup.html" class="btn" data-i18n="nav.signIn">
+                    <a href="./signup.html" class="btn">
                         Sign in&nbsp;<i class="fa-solid fa-arrow-right-from-bracket"></i>
                     </a>
                 </li>
@@ -118,7 +126,9 @@
         </nav>
     </header>
 
-    <div id="offlineMessage" style="display: none; max-width: 500px; margin: 40px auto; padding: 20px; text-align: center; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+
+    <div id="offlineMessage"
+        style="display: none; max-width: 500px; margin: 40px auto; padding: 20px; text-align: center; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
         <div style="font-size: 48px; color: #ff4444; margin-bottom: 15px;">
             <i class="fa-solid fa-wifi-slash"></i>
         </div>
@@ -126,8 +136,7 @@
         <p style="color: #666; margin-bottom: 20px; line-height: 1.5;">
             We can't load the content right now. Please check your connection.
         </p>
-        <button id="retryButton" 
-                style="background: #ff6b6b; color: white; border: none; padding: 12px 24px; 
+        <button id="retryButton" style="background: #ff6b6b; color: white; border: none; padding: 12px 24px; 
                        border-radius: 6px; cursor: pointer; font-size: 16px; transition: all 0.3s;">
             <i class="fa-solid fa-sync"></i> Try Again
         </button>
@@ -139,7 +148,8 @@
             <div class="hero-section flex wrapper">
                 <div class="content" data-aos="fade-right">
                     <h1 data-i18n="hero.title">Enjoy Your Delicious <span data-i18n="hero.highlight">Food</span></h1>
-                    <p class="para" data-i18n="hero.subtitle">We will fill your tummy with delicious food with fast delivery</p>
+                    <p class="para" data-i18n="hero.subtitle">We will fill your tummy with delicious food with fast
+                        delivery</p>
                     <div class="flex gap-2">
                         <a href="./menu.html" class="place-order-btn btn" data-i18n="hero.orderNow">Order now</a>
                     </div>
@@ -170,7 +180,8 @@
                             <img src="../imgs/fast-delivery.png" alt="Fast food delivery">
                         </div>
                         <h3 data-i18n="services.fastDelivery.title">Fast delivery</h3>
-                        <p data-i18n="services.fastDelivery.description">Delivery that is always on time, even faster.</p>
+                        <p data-i18n="services.fastDelivery.description">Delivery that is always on time, even faster.
+                        </p>
                     </div>
 
                     <div class="srevice-card" data-aos="zoom-in" data-aos-delay="300">
@@ -277,7 +288,8 @@
                     <div class="content" data-aos="fade-left">
                         <h5 data-i18n="app.sectionTitle">Our Application</h5>
                         <h2 data-i18n="app.mainTitle">Simple way to <br> order your food</h2>
-                        <p class="para" data-i18n="app.description">Crave it. Find it. Get it fast wherever, whenever.</p>
+                        <p class="para" data-i18n="app.description">Crave it. Find it. Get it fast wherever, whenever.
+                        </p>
                         <a href="#" class="btn" data-i18n="app.installButton">Install the app</a>
                     </div>
                 </div>
@@ -289,12 +301,13 @@
                 <div class="text-center">
                     <h5 data-i18n="newsletter.sectionTitle">Our Subscribe</h5>
                     <h2 data-i18n="newsletter.mainTitle">Subscribe to Our newsletter</h2>
-                    <p class="para m-auto" data-i18n="newsletter.description">We recommend you to Subscribe our newsletter,
+                    <p class="para m-auto" data-i18n="newsletter.description">We recommend you to Subscribe our
+                        newsletter,
                         drop you email below to get daily update about us.</p>
 
                     <form id="newsletterForm" class="input-container flex" data-aos="fade-up" data-aos-delay="200">
-                        <input type="email" name="email" id="email" data-i18n="[placeholder]newsletter.placeholder" placeholder="Enter your email address"
-                            autocomplete="off" required>
+                        <input type="email" name="email" id="email" data-i18n="[placeholder]newsletter.placeholder"
+                            placeholder="Enter your email address" autocomplete="off" required>
                         <button type="submit" class="btn" data-i18n="newsletter.subscribeButton">Subscribe</button>
                     </form>
                     <span class="error-message" id="emailError"></span>
@@ -308,7 +321,8 @@
             <div class="flex wrapper gap-4">
                 <div class="footer-wrapper">
                     <a href="#" class="logo">Foodie.</a>
-                    <p class="mt-one" data-i18n="footer.description">We will fill your tummy with delicious <br>food with fast delivery</p>
+                    <p class="mt-one" data-i18n="footer.description">We will fill your tummy with delicious <br>food
+                        with fast delivery</p>
                     <div class="media flex gap-2 mt-one">
                         <a href="https://github.com/janavipandole" class="social-media">
                             <img src="../imgs/GitHub.png" alt="GitHub social icon in footer">
@@ -329,9 +343,12 @@
                     <li>
                         <h4 data-i18n="footer.ourMenu">Our Menu</h4>
                     </li>
-                    <li class="mt-one"><a href="Special-dishes·.html" class="footer-link" data-i18n="footer.special">Special</a></li>
-                    <li class="mt-one"><a href="popular.html" class="footer-link" data-i18n="footer.popular">Popular</a></li>
-                    <li class="mt-one"><a href="../html/index.html" class="footer-link" data-i18n="footer.category">Category</a></li>
+                    <li class="mt-one"><a href="Special-dishes·.html" class="footer-link"
+                            data-i18n="footer.special">Special</a></li>
+                    <li class="mt-one"><a href="popular.html" class="footer-link" data-i18n="footer.popular">Popular</a>
+                    </li>
+                    <li class="mt-one"><a href="../html/index.html" class="footer-link"
+                            data-i18n="footer.category">Category</a></li>
                 </ul>
 
                 <ul class="footer-wrapper">
@@ -339,27 +356,35 @@
                         <h4 data-i18n="footer.company">Company</h4>
                     </li>
                     <li class="mt-one"><a href="#" class="footer-link" data-i18n="footer.whyFoodie"> Why Foodie</a></li>
-                    <li class="mt-one"><a href="../html/PartnerWithUs.html" class="footer-link" data-i18n="footer.partnerWithUs"> Partner with us</a>
+                    <li class="mt-one"><a href="../html/PartnerWithUs.html" class="footer-link"
+                            data-i18n="footer.partnerWithUs"> Partner with us</a>
                     </li>
-                    <li class="mt-one"><a href="../html/aboutUs.html" class="footer-link" data-i18n="footer.aboutUs"> About us </a></li>
-                    <li class="mt-one"><a href="faq-page.html" class="footer-link" data-i18n="footer.faq"> FAQ's</a></li>
+                    <li class="mt-one"><a href="../html/aboutUs.html" class="footer-link" data-i18n="footer.aboutUs">
+                            About us </a></li>
+                    <li class="mt-one"><a href="faq-page.html" class="footer-link" data-i18n="footer.faq"> FAQ's</a>
+                    </li>
                 </ul>
 
                 <ul class="footer-wrapper">
                     <li>
                         <h4 data-i18n="footer.support">Support</h4>
                     </li>
-                    <li class="mt-one"><a href="../html/signup.html" class="footer-link" data-i18n="footer.account">Account</a></li>
-                    <li class="mt-one"><a href="../html/supportCenter.html" class="footer-link" data-i18n="footer.supportCenter"> Support center </a>
+                    <li class="mt-one"><a href="../html/signup.html" class="footer-link"
+                            data-i18n="footer.account">Account</a></li>
+                    <li class="mt-one"><a href="../html/supportCenter.html" class="footer-link"
+                            data-i18n="footer.supportCenter"> Support center </a>
                     </li>
-                    <li class="mt-one"><a href="../html/feedback.html" class="footer-link" data-i18n="footer.feedback"> Feedback</a></li>
-                    <li class="mt-one"><a href="../html/contactUs.html" class="footer-link" data-i18n="footer.contactUs">Contact Us</a></li>
+                    <li class="mt-one"><a href="../html/feedback.html" class="footer-link" data-i18n="footer.feedback">
+                            Feedback</a></li>
+                    <li class="mt-one"><a href="../html/contactUs.html" class="footer-link"
+                            data-i18n="footer.contactUs">Contact Us</a></li>
                 </ul>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/911234567890" class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+    <a href="https://wa.me/911234567890" class="whatsapp-fab" target="_blank" rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -373,7 +398,7 @@
     <script src="../js/cursor.js"></script>
     <script>
         // Prevent navigation when offline
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (!navigator.onLine) {
                 const link = e.target.closest('a');
                 if (link) {
@@ -394,7 +419,7 @@
         function checkConnection() {
             const offlineMessage = document.getElementById('offlineMessage');
             const mainContent = document.querySelector('main');
-            
+
             if (!navigator.onLine) {
                 if (offlineMessage) offlineMessage.style.display = 'block';
                 if (mainContent) mainContent.style.filter = 'blur(3px)';
@@ -425,20 +450,20 @@
                 icon.classList.add('fa-spinner');
                 icon.animate(rotationAnimation, rotationTiming);
                 retryStatus.textContent = 'Checking connection...';
-                
+
                 try {
                     const testUrls = [
                         'https://www.google.com/favicon.ico',
                         'https://www.cloudflare.com/favicon.ico'
                     ];
-                    
-                    const timeoutPromise = new Promise((_, reject) => 
+
+                    const timeoutPromise = new Promise((_, reject) =>
                         setTimeout(() => reject(new Error('timeout')), 3000)
                     );
 
                     for (const url of testUrls) {
                         try {
-                            const fetchPromise = fetch(url, { 
+                            const fetchPromise = fetch(url, {
                                 mode: 'no-cors',
                                 cache: 'no-store'
                             });
@@ -470,7 +495,7 @@
         window.addEventListener('online', checkConnection);
         window.addEventListener('offline', checkConnection);
         document.getElementById('retryButton').addEventListener('click', handleRetry);
-        
+
         // Back to top functionality
         (function () {
             const backToTop = document.querySelector('.back-to-top');
@@ -499,16 +524,16 @@
     <script src="../js/newsletter.js"></script>
 
     <script>
-        (function() {
+        (function () {
             // Handle search form submission - redirect to menu.html with search query
             const searchForms = document.querySelectorAll('.navbar-search');
-            
+
             searchForms.forEach(form => {
-                form.addEventListener('submit', function(e) {
+                form.addEventListener('submit', function (e) {
                     e.preventDefault();
                     const searchInput = form.querySelector('input[name="search"]');
                     const query = searchInput.value.trim();
-                    
+
                     if (query) {
                         window.location.href = `./menu.html?search=${encodeURIComponent(query)}`;
                     } else {

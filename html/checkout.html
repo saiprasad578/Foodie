@@ -30,36 +30,66 @@
 
       <!-- DESKTOP MENU -->
       <ul class="navList flex gap-3 between">
-        <li><a href="./index.html#home">Home</a></li>
-        <li><a href="./index.html#services">Services</a></li>
-        <li><a href="./menu.html">Menu</a></li>
-        <li><a href="./aboutUs.html">About Us</a></li>
-        <li><a href="./contactUs.html">Contact Us</a></li>
-        <li><a href="nearbyres.html">Nearby Restaurants</a></li>
+        <li><a class="active" href="./index.html#home" data-i18n="nav.home">Home</a></li>
+        <li><a href="./menu.html" data-i18n="nav.menu">Menu</a></li>
+        <li><a href="./aboutUs.html" data-i18n="nav.about">About Us</a></li>
+        <li><a href="./contactUs.html" data-i18n="nav.contact">Contact Us</a></li>
+        <li><a href="nearbyres.html" data-i18n="nav.nearby">Nearby Restaurants</a></li>
       </ul>
-
       <div class="desktop-action flex gap-2">
+        <!-- Language Selector -->
+        <div class="language-selector">
+          <select id="language-select">
+            <option value="en">English</option>
+            <option value="hi">हिंदी</option>
+          </select>
+        </div>
+
+        <!-- Search Input -->
+        <form class="navbar-search" action="#" method="get">
+          <input type="text" name="search" id="navbar-search" placeholder="Search your food ..."
+            aria-label="Search menu items">
+          <button type="submit" id="navbar-search-btn" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+
+        <!-- Theme toggle -->
         <button class="desktop-action theme-toggle" aria-label="Toggle dark mode">
           <i class="fa-solid fa-moon"></i>
         </button>
-        <a href="./checkout.html" class="cart-icon active">
+
+        <!-- Cart Icon -->
+        <a href="./checkout.html" class="cart-icon">
           <i class="fa-solid fa-bag-shopping"></i>
           <span class="cart-value">0</span>
         </a>
+
+        <!-- Sign-in button -->
         <a href="./signup.html" class="btn">
           Sign in&nbsp;<i class="fa-solid fa-arrow-right-from-bracket"></i>
         </a>
+
+        <!-- Hamburger -->
         <a href="#" class="hamberger"><i class="fa-solid fa-bars"></i></a>
       </div>
 
+
       <!-- MOBILE MENU -->
       <ul class="mobile-menu">
-        <li><a href="./index.html#home">Home</a></li>
-        <li><a href="./index.html#services">Services</a></li>
-        <li><a href="./index.html#menu">Menu</a></li>
-        <li><a href="./aboutUs.html">About Us</a></li>
-        <li><a href="./contactUs.html">Contact Us</a></li>
-        <li><a href="nearbyres.html">Nearby Restaurants</a></li>
+        <li><a class="active" href="./index.html#home" data-i18n="nav.home">Home</a></li>
+        <li><a href="./menu.html" data-i18n="nav.menu">Menu</a></li>
+        <li><a href="./aboutUs.html" data-i18n="nav.about">About Us</a></li>
+        <li><a href="./contactUs.html" data-i18n="nav.contact">Contact Us</a></li>
+        <li><a href="nearbyres.html" data-i18n="nav.nearby">Nearby Restaurants</a></li>
+        <!-- Search Input -->
+        <form class="navbar-search" action="#" method="get">
+          <input type="text" name="search" id="navbar-search" placeholder="Search your food ..."
+            aria-label="Search menu items">
+          <button type="submit" id="navbar-search-btn" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
         <li>
           <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle dark mode">
             <i class="fa-solid fa-moon"></i><span>Dark Mode</span>
@@ -73,6 +103,8 @@
       </ul>
     </nav>
   </header>
+
+
 
   <main class="checkout-container">
     <h5 class="text-center">Checkout</h5>
@@ -267,7 +299,7 @@
   <a href="#home" class="back-to-top" aria-label="Back to top">
     <i class="fa-solid fa-arrow-up"></i>
   </a>
-  
+
   <!-- SUCCESS MODAL -->
   <div class="success-modal" id="successModal">
     <div class="success-content">
@@ -363,14 +395,14 @@
 
     function displayOrderItems() {
       const container = document.getElementById("orderItems");
-        container.innerHTML = cartData
-          .map((item) => {
-            const name = item && item.name ? item.name : 'Item';
-            const qty = item && item.quantity ? item.quantity : 1;
-            const priceRaw = item && item.price ? item.price.toString() : '0';
-            const priceNum = parseFloat(priceRaw.replace ? priceRaw.replace(/[₹$]/g, "") : priceRaw) || 0;
-            const img = item && item.image ? item.image : '../imgs/placeholder.png';
-            return `
+      container.innerHTML = cartData
+        .map((item) => {
+          const name = item && item.name ? item.name : 'Item';
+          const qty = item && item.quantity ? item.quantity : 1;
+          const priceRaw = item && item.price ? item.price.toString() : '0';
+          const priceNum = parseFloat(priceRaw.replace ? priceRaw.replace(/[₹$]/g, "") : priceRaw) || 0;
+          const img = item && item.image ? item.image : '../imgs/placeholder.png';
+          return `
                   <div class="order-item">
                       <img src="${img}" alt="${name}">
                       <div class="order-item-details">
@@ -380,8 +412,8 @@
                       <div class="order-item-price">₹${(qty * priceNum).toFixed(2)}</div>
                   </div>
               `;
-          })
-          .join("");
+        })
+        .join("");
     }
 
     function calculateTotals() {
